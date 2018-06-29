@@ -18,33 +18,44 @@ sudo cp cuda/include/*.* /usr/local/cuda/include/
 sudo cp cuda/lib64/*.* /usr/local/cuda/lib64/
 wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
 bash Anaconda3-5.0.1-Linux-x86_64.sh -b
-cd
-git clone https://github.com/fastai/fastai.git
-cd fastai/
 echo 'export PATH=~/anaconda3/bin:$PATH' >> ~/.bashrc
 export PATH=~/anaconda3/bin:$PATH
 source ~/.bashrc
-conda env update
-#echo 'source activate fastai' >> ~/.bashrc
-source ~/.bashrc
-source activate fastai
-pip install ipykernel
-python -m ipykernel install --user --name fastai --display-name "fastai"
+
+cd
+git clone https://github.com/fastai/fastai.git
+cd fastai/
+conda env create -f environment.yml
+wget http://files.fast.ai/models/weights.tgz
+tar -xvf weights.tgz
+rm weights.tgz
+
+# clean up of Downloaded Files
+cd 
+rm -rf downloads
 
 
 # Jupyter Notebook setup 
-
 jupyter notebook --generate-config
+echo "c = get_config()  # Get the config object.
+c.IPKernelApp.pylab = 'inline'  # in-line figure when using Matplotlib
+c.NotebookApp.ip = '*'  # Serve notebooks locally.
+c.NotebookApp.open_browser = False  # Do not open a browser window by default when using notebooks." >> $HOME/.jupyter/jupyter_notebook_config.py
 jupass=`python -c "from notebook.auth import passwd; print(passwd())"`
 echo "c.NotebookApp.password = u'"$jupass"'" >> $HOME/.jupyter/jupyter_notebook_config.py
-echo "c.NotebookApp.ip = '*'
-c.NotebookApp.open_browser = False" >> $HOME/.jupyter/jupyter_notebook_config.py
+
+pip install ipywidgets
+jupyter nbextension enable --py widgetsnbextension --sys-prefix
+
 
 # Crontab to start jupyter on Start
 ( crontab -l ; echo "@reboot cd /home/ubuntu; source ~/.bashrc;  /home/ubuntu/anaconda3/bin/jupyter notebook" ) | crontab -
 
-pip install ipywidgets
-jupyter nbextension enable --py widgetsnbextension --sys-prefix
+# Setup Kernel in jupyter
+source activate fastai
+pip install ipykernel
+python -m ipykernel install --user --name fastai --display-name "fastai"
+
 
 echo
 echo ---
