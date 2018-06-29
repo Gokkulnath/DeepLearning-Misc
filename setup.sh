@@ -25,21 +25,27 @@ echo 'export PATH=~/anaconda3/bin:$PATH' >> ~/.bashrc
 export PATH=~/anaconda3/bin:$PATH
 source ~/.bashrc
 conda env update
-echo 'source activate fastai' >> ~/.bashrc
-source activate fastai
+#echo 'source activate fastai' >> ~/.bashrc
 source ~/.bashrc
-cd ..
-mkdir data
-cd data
-wget http://files.fast.ai/data/dogscats.zip
-unzip -q dogscats.zip
-cd ../fastai/courses/dl1/
-ln -s ~/data ./
+source activate fastai
+pip install ipykernel
+python -m ipykernel install --user --name fastai --display-name "fastai"
+
+
+# Jupyter Notebook setup 
+
 jupyter notebook --generate-config
-echo "c.NotebookApp.ip = '*'" >> ~/.jupyter/jupyter_notebook_config.py
-echo "c.NotebookApp.open_browser = False" >> ~/.jupyter/jupyter_notebook_config.py
+jupass=`python -c "from notebook.auth import passwd; print(passwd())"`
+echo "c.NotebookApp.password = u'"$jupass"'" >> $HOME/.jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.ip = '*'
+c.NotebookApp.open_browser = False" >> $HOME/.jupyter/jupyter_notebook_config.py
+
+# Crontab to start jupyter on Start
+( crontab -l ; echo "@reboot cd /home/ubuntu; source ~/.bashrc;  /home/ubuntu/anaconda3/bin/jupyter notebook" ) | crontab -
+
 pip install ipywidgets
 jupyter nbextension enable --py widgetsnbextension --sys-prefix
+
 echo
 echo ---
 echo - Rebooting you instance to et your environment ready
