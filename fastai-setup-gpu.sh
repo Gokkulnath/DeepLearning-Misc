@@ -2,7 +2,7 @@
 
 # Get Latest OS Updates and Clean the Older Version
 sudo apt update
-sudo apt install unzip -y
+sudo apt install unzip  git -y
 sudo apt -y autoremove
 
 
