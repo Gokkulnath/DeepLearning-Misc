@@ -7,6 +7,9 @@ sudo apt -y autoremove
 
 
 # Add CUDA Repository
+sudo apt update
+mkdir downloads
+cd ~/downloads/
 sudo add-apt-repository ppa:graphics-drivers/ppa -y
 wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
@@ -63,7 +66,8 @@ source activate fastai
 pip install ipykernel
 python -m ipykernel install --user --name fastai --display-name "fastai"
 
-
+# Clean up 
+rm -rf ~/downloads
 echo
 echo ---
 echo - Rebooting you instance to et your environment ready
