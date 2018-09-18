@@ -55,7 +55,7 @@ jupyter nbextension enable --py widgetsnbextension --sys-prefix
 
 
 # Crontab to start jupyter on Start
-( crontab -l ; echo "@reboot cd /home/ubuntu; source ~/.bashrc;  /home/ubuntu/anaconda3/bin/jupyter notebook" ) | crontab -
+( crontab -l ; echo "@reboot cd $HOME; source ~/.bashrc;  $HOME/anaconda3/bin/jupyter notebook" ) | crontab -
 
 # Setup Kernel in jupyter
 source activate fastai
