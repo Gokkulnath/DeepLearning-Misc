@@ -58,12 +58,14 @@ conda create -n fastai python=3.7 -y
 source activate fastai
 
 
-conda install pytorch-nightly -c pytorch -y
-pip install torchvision 
-git clone https://github.com/fastai/fastai_pytorch
-cd fastai_pytorch
+conda install -c pytorch -c fastai fastai pytorch-nightly cuda92 -y
+#pip install torchvision 
+git clone https://github.com/fastai/fastai
+cd fastai
+tools/run-after-git-clone
 pip install -e .
-tools/run-after-git-clones
+
+#Setup kernel on Jupyter
 pip install ipykernel
 python -m ipykernel install --user --name fastai --display-name "fastai"
 
