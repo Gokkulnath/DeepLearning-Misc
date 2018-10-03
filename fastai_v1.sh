@@ -40,7 +40,7 @@ echo "c = get_config()  # Get the config object.
 c.IPKernelApp.pylab = 'inline'  # in-line figure when using Matplotlib
 c.NotebookApp.ip = '*'  # Serve notebooks locally.
 c.NotebookApp.open_browser = False  # Do not open a browser window by default when using notebooks." >> $HOME/.jupyter/jupyter_notebook_config.py
-echo"Enter Password for Jupyter Notebook Login"
+echo "Enter Password for Jupyter Notebook Login"
 jupass=`python -c "from notebook.auth import passwd; print(passwd())"`
 echo "c.NotebookApp.password = u'"$jupass"'" >> $HOME/.jupyter/jupyter_notebook_config.py
 
