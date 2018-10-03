@@ -65,6 +65,9 @@ cd fastai
 tools/run-after-git-clone
 pip install -e .
 
+#CV2 
+pip install opencv-python
+
 #Setup kernel on Jupyter
 pip install ipykernel
 python -m ipykernel install --user --name fastai --display-name "fastai"
