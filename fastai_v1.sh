@@ -80,3 +80,6 @@ echo - Rebooting you instance to et your environment ready
 echo ---
 sudo reboot
 
+# TODO
+# Add Alias Automatically
+# Put Kaggle Json Automatically
