@@ -82,4 +82,9 @@ sudo reboot
 
 # TODO
 # Add Alias Automatically
+cd 
+echo 'alias fastai="source activate fastai"'>.bashrc
+#echo 'alias fastai="source activate fastai"'>.bashrc
+source .bashrc
+
 # Put Kaggle Json Automatically
