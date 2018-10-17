@@ -73,7 +73,7 @@ source .bashrc
 rm -rf ~/downloads
 echo
 echo ---
-echo - Setup complete
+echo - Setup complete. Rebooting Now 
 echo ---
-
+sudo reboot
 
