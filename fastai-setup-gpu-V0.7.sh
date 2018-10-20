@@ -32,8 +32,8 @@ source ~/.bashrc
 
 # Clone Fastai Repo --> Not Mandatory
 cd
-git clone https://github.com/fastai/fastai.git
-cd fastai/
+git clone https://github.com/Gokkulnath/fastai-v0.7.git
+cd fastai-v0.7/
 # Creation of Fast.ai GPU Environment
 conda env create -f environment.yml
 
@@ -62,9 +62,9 @@ jupyter nbextension enable --py widgetsnbextension --sys-prefix
 (crontab -l ; echo "@reboot cd $HOME; source ~/.bashrc;  $HOME/anaconda3/bin/jupyter notebook") | crontab -
 
 # Setup Kernel in jupyter
-source activate fastai
+source activate fastai-v0.7
 pip install ipykernel
-python -m ipykernel install --user --name fastai --display-name "fastai"
+python -m ipykernel install --user --name fastai-v0.7 --display-name "fastai-v0.7"
 
 # Clean up 
 rm -rf ~/downloads
