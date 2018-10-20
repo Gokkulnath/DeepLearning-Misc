@@ -54,16 +54,19 @@ jupyter nbextension enable --py widgetsnbextension --sys-prefix
 
 
 
+#Fastai Version Dev Install
 conda create -n fastai python=3.7 -y
 source activate fastai
+conda install -c pytorch pytorch-nightly cuda92 -y
+conda install -c fastai torchvision-nightly -y
+conda install -c fastai fastai -y
 
-
-conda install -c pytorch -c fastai fastai pytorch-nightly cuda92 -y
-#pip install torchvision 
+# Dev Install only. Comment Below if Dev env not required
+conda uninstall fastai -y
 git clone https://github.com/fastai/fastai
 cd fastai
 tools/run-after-git-clone
-pip install -e .
+pip install -e .[dev]
 
 #CV2 
 pip install opencv-python
