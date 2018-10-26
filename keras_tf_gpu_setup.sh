@@ -54,7 +54,7 @@ jupyter nbextension enable --py widgetsnbextension --sys-prefix
 conda create -n keras-tf python=3.6 -y
 source ~/.bashrc
 source activate keras-tf
-conda install -c tensorflow-gpu  -y
+conda install -c defaults tensorflow-gpu  -y
 pip install -q keras
 
 pip install opencv-python
