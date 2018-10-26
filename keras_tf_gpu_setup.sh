@@ -26,7 +26,7 @@ sudo cp cuda/include/*.* /usr/local/cuda/include/
 sudo cp cuda/lib64/*.* /usr/local/cuda/lib64/
 
 # Get Anaconda and Install 
-wget https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh # Might Need update Periodically Last Updated : 18-09-2018
+wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh # Might Need update Periodically Last Updated : 18-09-2018
 bash Anaconda3-5.1.0-Linux-x86_64.sh -b
 echo 'export PATH=~/anaconda3/bin:$PATH' >> ~/.bashrc
 export PATH=~/anaconda3/bin:$PATH
