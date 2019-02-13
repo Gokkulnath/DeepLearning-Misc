@@ -85,7 +85,7 @@ sudo reboot
 
 # TODO
 # Add Alias Automatically
-cd 
+cd ~
 echo 'alias fastai="source activate fastai"'>.bashrc
 #echo 'alias fastai="source activate fastai"'>.bashrc
 source .bashrc
