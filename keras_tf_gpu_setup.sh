@@ -26,8 +26,8 @@ sudo cp cuda/include/*.* /usr/local/cuda/include/
 sudo cp cuda/lib64/*.* /usr/local/cuda/lib64/
 
 # Get Anaconda and Install 
-wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh # Might Need update Periodically Last Updated : 18-09-2018
-bash Anaconda3-5.3.0-Linux-x86_64.sh -b
+wget https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh # Might Need update Periodically Last Updated : 18-09-2018
+bash Anaconda3-2018.12-Linux-x86_64.sh -b
 echo 'export PATH=~/anaconda3/bin:$PATH' >> ~/.bashrc
 export PATH=~/anaconda3/bin:$PATH
 source ~/.bashrc
@@ -54,8 +54,9 @@ jupyter nbextension enable --py widgetsnbextension --sys-prefix
 conda create -n keras-tf python=3.6 -y
 source ~/.bashrc
 source activate keras-tf
-conda install -c defaults tensorflow-gpu  -y
-pip install -q keras
+conda install -c anaconda keras-gpu -y
+conda install -c anaconda tensorflow-gpu -y
+
 
 pip install opencv-python
 
