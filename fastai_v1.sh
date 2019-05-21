@@ -21,14 +21,14 @@ sudo apt update
 sudo apt install cuda -y
 
 # Get CUDNN 9.1 and Install it
-wget http://files.fast.ai/files/cudnn-9.1-linux-x64-v7.tgz
-tar xf cudnn-9.1-linux-x64-v7.tgz
+wget http://files.fast.ai/files/cudnn-10.0-linux-x64-v7.5.0.56.tgz
+tar xf cudnn-10.0-linux-x64-v7.5.0.56.tgz
 sudo cp cuda/include/*.* /usr/local/cuda/include/
 sudo cp cuda/lib64/*.* /usr/local/cuda/lib64/
 
 # Get Anaconda and Install 
-wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh # Might Need update Periodically Last Updated : 18-09-2018
-bash Anaconda3-5.3.0-Linux-x86_64.sh -b
+wget https://repo.continuum.io/archive/Anaconda3-5.3.1-Linux-x86_64.sh # Might Need update Periodically Last Updated : 18-09-2018
+bash Anaconda3-5.3.1-Linux-x86_64.sh -b
 echo 'export PATH=~/anaconda3/bin:$PATH' >> ~/.bashrc
 export PATH=~/anaconda3/bin:$PATH
 source ~/.bashrc
@@ -57,12 +57,7 @@ jupyter nbextension enable --py widgetsnbextension --sys-prefix
 #Fastai Version Dev Install
 conda create -n fastai python=3.7 -y
 source activate fastai
-conda install -c pytorch pytorch-nightly cuda92 -y
-conda install -c fastai torchvision-nightly -y
-conda install -c fastai fastai -y
 
-# Dev Install only. Comment Below if Dev env not required
-conda uninstall fastai -y
 git clone https://github.com/fastai/fastai
 cd fastai
 tools/run-after-git-clone
