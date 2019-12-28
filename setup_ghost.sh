@@ -1,11 +1,11 @@
-sudo apt-get update && sudo apt-get upgrade
+sudo apt-get update && sudo apt-get upgrade -y
 echo "Installing NGINX and MYSQL"
-sudo apt-get install nginx mysql-server
+sudo apt-get install nginx mysql-server -y
 sudo ufw allow 'Nginx Full'
 
 echo "Installing Nodejs"
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
-sudo apt-get install -y nodejs
+sudo apt-get install -y nodejs -y
 
 echo "Installing Ghost CLI"
 sudo npm install ghost-cli@latest -g
