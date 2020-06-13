@@ -48,7 +48,7 @@ create_file(os.path.join(base_dir,'tasks','train_character_predictor.sh'),'# Tra
         
 for i in range(modules_count):
     
-    module = str(input('Enter the Submodule Name')) # 'text_recognizer'
+    module = str(input('Enter the Submodule Name: ')) # 'text_recognizer'
     os.makedirs(os.path.join(base_dir, module),exist_ok=True)
 
     create_file(os.path.join(base_dir, module ,'__init__.py'),'# Package that can be deployed as a self-contained prediction system')
