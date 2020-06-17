@@ -48,7 +48,7 @@ jupyter nbextension enable --py widgetsnbextension --sys-prefix
 # Crontab to start jupyter on Start
 (crontab -l ; echo "@reboot cd $HOME; source ~/.bashrc;  $HOME/miniconda3/bin/jupyter notebook") | crontab -
 # Setup Fastai2 Environment
-conda create -n fastai2 python=3.7
+conda create -n fastai2 python=3.7 -y
 conda activate fastai2
 git clone https://github.com/fastai/fastai2  && cd fastai2 && pip install -q -e ".[dev]"
 git clone https://github.com/fastai/fastcore && cd fastcore && pip install -q -e ".[dev]"
